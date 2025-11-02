@@ -1,0 +1,15 @@
+.header {
+  background-color: var(--color-white);
+  padding-block: 1rem;
+  border-bottom: var(--border);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 1.5rem;
+}

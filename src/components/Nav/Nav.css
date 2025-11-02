@@ -1,0 +1,18 @@
+.nav {
+  display: flex;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  color: var(--color-gray-4)
+}
+
+.is-active {
+  color: var(--color-black);
+  text-decoration: underline;
+  text-decoration-color: var(--color-blue);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
