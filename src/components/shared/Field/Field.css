@@ -1,5 +1,7 @@
 .field {
   flex: 1;
+  position: relative;
+  margin-bottom: 1.5rem;
 }
 
 .field label {
@@ -36,6 +38,26 @@
   resize: vertical;
 }
 
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.input-wrapper input {
+  padding-left: 3rem;
+}
+
+.input-wrapper .icon {
+  position: absolute;
+  color: var(--color-gray-text);
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+
 /* ERROR */
 
 .field input.input-error {
@@ -43,6 +65,9 @@
 }
 
 .error-wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0.675rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;

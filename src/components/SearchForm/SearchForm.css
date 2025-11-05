@@ -1,0 +1,16 @@
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-form .wrapper {
+  display: grid;
+  grid-template-columns: 85% 1fr;
+  gap: 1rem
+}
+
+.search-form .wrapper:nth-child(2) {
+  display: flex;
+
+}

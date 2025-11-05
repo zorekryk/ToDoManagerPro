@@ -3,21 +3,13 @@ import "./Button.css";
 const Button = (props) => {
   const {
     classname = "",
-    title,
     type = "button",
-    icon: Icon = null,
-    iconPosition = "left",
+    children,
     ...rest
   } = props;
   return (
     <button className={`button ${classname}`} type={type} {...rest}>
-      {Icon && iconPosition === "left" && (
-        <Icon className="button__icon left" />
-      )}
-      {title}
-      {Icon && iconPosition === "right" && (
-        <Icon className="button__icon right" />
-      )}
+      {children}
     </button>
   );
 };

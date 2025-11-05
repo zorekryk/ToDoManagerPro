@@ -1,0 +1,29 @@
+.task {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.task > div {
+  display: flex;
+}
+
+.task-content {
+  gap: 1rem;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-other {
+  display: flex;
+  gap: 1rem;
+}
+
+.task-actions {
+  align-items: flex-start;
+  gap: 0.2rem;
+  justify-content: center;
+}

@@ -1,0 +1,16 @@
+.badge {
+  display: inline-flex;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.850rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.badge.ghost {
+  background-color: transparent;
+  color: var(--color-gray-text);
+}

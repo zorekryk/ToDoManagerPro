@@ -7,11 +7,32 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 18px;
 }
 
 main {
   padding-block: 2rem;
+}
+
+.card {
+  background-color: #fff;
+  width: 100%;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  padding-block: 1.5rem;
+  padding-inline: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 input,
@@ -24,4 +45,35 @@ button {
   outline: 2px dashed var(--color-black);
   outline-offset: 4px;
   transition-duration: 0s !important;
+}
+
+input[type=checkbox] {
+  appearance: none;
+  border: 2px solid var(--color-gray-2);
+  border-radius: var(--border-radius);
+  height: 24px;
+  width: 24px;
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  &:checked {
+    background-color: var(--color-dark-2);
+    border-color: var(--color-dark-2);
+  }
+
+  &:not(:checked)::after {
+    opacity: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 16px;
+    height: 16px;
+    background: url("/src/assets/check.svg") center/contain no-repeat;
+  }
 }
