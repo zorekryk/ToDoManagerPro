@@ -1,24 +1,24 @@
-import "./AddTaskForm.css";
-import { useTasks } from "@/store";
-import { Plus } from "lucide-react";
+import "./TaskForm.css";
+import { Plus, Save } from "lucide-react";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router";
 import Button from "../shared/Button";
 import Field from "../shared/Field";
 
 const categories = ["Життя", "Робота", "Навчання", "Покупки"];
-const INITIAL_FORM_STATE = {
-  title: "",
-  description: "",
-  category: categories[0],
-  deadline: ""
-};
 
-const AddTaskForm = () => {
+const TaskForm = (props) => {
+  const {
+    initialData,
+    submitLabel = "Додати завдання",
+    onSubmit,
+    showCancel = false
+  } = props;
   const today = new Date().toISOString().split("T")[0];
-  const [form, setForm] = useState(INITIAL_FORM_STATE);
+  const [form, setForm] = useState(initialData);
   const [errors, setErrors] = useState({ title: "" });
   const titleInputRef = useRef(null);
-  const addTask = useTasks((state) => state.addTask);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -50,16 +50,19 @@ const AddTaskForm = () => {
       titleInputRef.current?.focus();
       return;
     }
-    const deadline = form.deadline || "Без дедлайну"
+    const deadline = form.deadline || "Без дедлайну";
 
-    addTask({...form, deadline});
-    setForm(INITIAL_FORM_STATE);
+    onSubmit({ ...form, deadline });
+    setForm(initialData);
     setErrors({ title: "" });
+  };
+  const handleCancel = () => {
+    navigate("/");
   };
 
   return (
     <form className="add-task-form card" onSubmit={handleSubmit}>
-      <h2>Додати нове завдання</h2>
+      <h2>{submitLabel}</h2>
       <Field
         id="title"
         name="title"
@@ -68,6 +71,7 @@ const AddTaskForm = () => {
         value={form.title}
         onChange={handleChange}
         error={errors.title}
+        ref={titleInputRef}
       />
       <Field
         id="description"
@@ -98,11 +102,19 @@ const AddTaskForm = () => {
           min={today}
         />
       </div>
-      <Button type="submit">
-        <Plus />Додати завдання
-      </Button>
+      <div className="actions">
+        <Button type="submit">
+          {submitLabel.includes("Додати") ? <Plus /> : <Save />}
+          {submitLabel.includes("Додати") ? "Додати завдання" : "Зберегти"}
+        </Button>
+        {showCancel && (
+          <Button type="button" onClick={handleCancel} classname="outlined">
+            Скасувати
+          </Button>
+        )}
+      </div>
     </form>
   );
 };
 
-export default AddTaskForm;
+export default TaskForm;

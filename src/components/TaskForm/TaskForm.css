@@ -1,0 +1,23 @@
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+
+  & h2 {
+    font-size: 1.125rem;
+  }
+
+  & .actions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  & .other-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+
+
