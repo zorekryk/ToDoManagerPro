@@ -2,14 +2,23 @@
   background-color: var(--color-white);
   padding-block: 1rem;
   border-bottom: var(--border);
+
+  & .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  & a {
+    text-decoration: none;
+    color: var(--color-black);
+  }
+
+  & h1 {
+    font-size: 1.5rem;
+  }
 }
 
 .header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-h1 {
-  font-size: 1.5rem;
 }
