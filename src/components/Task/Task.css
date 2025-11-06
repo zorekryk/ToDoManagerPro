@@ -1,29 +1,51 @@
 .task {
   display: grid;
   grid-template-columns: 1fr auto;
-}
-
-.task > div {
-  display: flex;
-}
-
-.task-content {
-  gap: 1rem;
-}
-
-.task-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.task-other {
-  display: flex;
-  gap: 1rem;
-}
-
-.task-actions {
   align-items: flex-start;
-  gap: 0.2rem;
-  justify-content: center;
+
+  & > div {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .task-content {
+    gap: 1rem;
+  }
+
+  .task-info {
+    width: 100%;
+    min-width: 0;
+
+
+    & label {
+      line-height: 1.2;
+      font-size: 1.2rem;
+      user-select: text;
+
+      &:active {
+        user-select: none;
+      }
+    }
+
+    & p {
+      margin-block: 0.8rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .task-other {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .task-actions {
+    align-items: flex-start;
+    gap: 0.2rem;
+    justify-content: center;
+  }
 }
+
+

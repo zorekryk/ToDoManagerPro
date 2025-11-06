@@ -4,12 +4,14 @@ import Button from "@/components/shared/Button";
 import { useTasks } from "@/store";
 import { Calendar, SquarePen, Tag, Trash2 } from "lucide-react";
 import { useId } from "react";
+import { useNavigate } from "react-router";
 
 const Task = (props) => {
-  const { id, title, description, category, deadline } = props;
+  const { id, completed, title, description, category, deadline } = props;
   const fieldId = useId();
+  const navigate = useNavigate();
   const removeTask = useTasks((state) => state.removeTask);
-
+  const toggleTask = useTasks((state) => state.toggleTask);
   return (
     <div className="task card">
       <div className="task-content">
@@ -17,6 +19,8 @@ const Task = (props) => {
           className="checkbox"
           id={fieldId}
           type="checkbox"
+          onChange={() => toggleTask(id)}
+          checked={completed}
         />
         <div className="task-info">
           <label htmlFor={fieldId}>{title}</label>
@@ -36,7 +40,7 @@ const Task = (props) => {
         </div>
       </div>
       <div className="task-actions">
-        <Button classname="ghost">
+        <Button classname="ghost" onClick={() => navigate(`edit/${id}`)}>
           <SquarePen />
         </Button>
         <Button classname="ghost" onClick={() => removeTask(id)}>

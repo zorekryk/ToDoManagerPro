@@ -1,3 +1,4 @@
+import EditTask from "@/pages/EditTask";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
@@ -12,6 +13,7 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
+          <Route path="/edit/:id" element={<EditTask />}/>
         </Route>
       </Routes>
     </BrowserRouter>
