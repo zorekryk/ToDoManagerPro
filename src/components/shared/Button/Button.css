@@ -9,6 +9,17 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  border: 1px solid transparent;
+
+  /*&:hover {*/
+  /*  background-color: var(--color-white);*/
+  /*  color: var(--color-black);*/
+  /*  border: var(--border);*/
+  /*}*/
+
+  &:active {
+    transform: scale(1.02);
+  }
 
   &.outlined {
     background-color: transparent;
@@ -16,6 +27,10 @@
     color: var(--color-black);
     font-weight: 400;
 
+    &:active {
+      background-color: var(--color-black);
+      color: var(--color-white);
+    }
   }
 
   &.filter {
@@ -25,6 +40,8 @@
     color: var(--color-black);
     font-weight: 400;
     width: fit-content;
+
+
   }
 
   &.ghost {
@@ -32,6 +49,11 @@
     padding-inline: 0;
     color: var(--color-gray-text);
     width: 44px;
+    padding: 0;
+    
+    &:active {
+      color: var(--color-black);
+    }
   }
 
   &:disabled {
@@ -39,8 +61,5 @@
     cursor: not-allowed;
   }
 
-  &:active {
-    background-color: var(--color-black);
-    color: var(--color-white);
-  }
+
 }
