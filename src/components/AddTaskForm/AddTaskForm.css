@@ -1,7 +1,7 @@
 .add-task-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.8rem;
 }
 
 .add-task-form h2 {

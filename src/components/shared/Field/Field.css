@@ -1,7 +1,6 @@
 .field {
   flex: 1;
   position: relative;
-  margin-bottom: 1.5rem;
 }
 
 .field label {
