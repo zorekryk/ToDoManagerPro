@@ -8,9 +8,10 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-}
 
-.badge.ghost {
-  background-color: transparent;
-  color: var(--color-gray-text);
+  &.ghost {
+    background-color: transparent;
+    color: var(--color-gray-text);
+    padding: 0;
+  }
 }
