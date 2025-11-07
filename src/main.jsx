@@ -1,10 +1,11 @@
-import EditTask from "@/pages/EditTask";
+import CategoriesPage from "@/pages/CategoriesPage";
+import EditTaskPage from "@/pages/EditTaskPage";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router";
 import App from "./App.jsx";
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
 import "./styles/index.css";
 
 createRoot(document.getElementById("root")).render(

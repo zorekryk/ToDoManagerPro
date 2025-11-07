@@ -1,9 +1,9 @@
 import TaskForm from "@/components/TaskForm";
-import { useTasks } from "@/store";
+import { useTasks } from "@/stores/useTasks";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 
-const EditTask = () => {
+const EditTaskPage = () => {
   const { id } = useParams();
   const tasks = useTasks((state) => state.tasks);
   const editTask = useTasks((state) => state.editTask);
@@ -14,11 +14,11 @@ const EditTask = () => {
   });
 
   useEffect(() => {
-    console.log('Looking for id:', id);
-    console.log('Available tasks:', tasks);
+    console.log("Looking for id:", id);
+    console.log("Available tasks:", tasks);
     if (!tasks || tasks.length === 0) return;
     const found = tasks.find((t) => t.id === id);
-    console.log('Found task:', found);
+    console.log("Found task:", found);
     if (found) setTask(found);
   }, [id, tasks]);
 
@@ -46,6 +46,7 @@ const EditTask = () => {
     editTask(task.id, data);
     navigate("/");
   };
+
   return (
     <main>
       <div className="container">
@@ -60,4 +61,4 @@ const EditTask = () => {
   );
 };
 
-export default EditTask;
+export default EditTaskPage;

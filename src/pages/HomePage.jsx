@@ -1,7 +1,7 @@
 import SearchForm from "@/components/SearchForm";
 import TaskForm from "@/components/TaskForm";
 import TaskList from "@/components/TaskList";
-import { useTasks } from "@/store";
+import { useTasks } from "@/stores/useTasks";
 
 const categories = ["Життя", "Робота", "Навчання", "Покупки"];
 
@@ -12,7 +12,7 @@ const INITIAL_FORM_STATE = {
   deadline: ""
 };
 
-const Home = () => {
+const HomePage = () => {
   const addTask = useTasks((state) => state.addTask);
 
   const handleAdd = (data) => {
@@ -30,4 +30,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
