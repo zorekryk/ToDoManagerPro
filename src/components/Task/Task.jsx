@@ -1,7 +1,7 @@
 import "./Task.css";
 import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
-import { useTasks } from "@/store";
+import { useTasks } from "@/stores/useTasks";
 import { Calendar, SquarePen, Tag, Trash2 } from "lucide-react";
 import { useId } from "react";
 import { useNavigate } from "react-router";
