@@ -1,6 +1,7 @@
+import Button from "@/components/shared/Button";
 import TaskForm from "@/components/TaskForm";
 import { useTasks } from "@/stores/useTasks";
-import { useEffect, useState } from "react";
+import { ArrowLeft } from "lucide-react";
 import { useNavigate, useParams } from "react-router";
 
 const EditTaskPage = () => {
@@ -8,35 +9,20 @@ const EditTaskPage = () => {
   const tasks = useTasks((state) => state.tasks);
   const editTask = useTasks((state) => state.editTask);
   const navigate = useNavigate();
-  const [task, setTask] = useState(() => {
-    const stored = useTasks.getState().tasks;
-    return stored.find((t) => t.id === id);
-  });
 
-  useEffect(() => {
-    console.log("Looking for id:", id);
-    console.log("Available tasks:", tasks);
-    if (!tasks || tasks.length === 0) return;
-    const found = tasks.find((t) => t.id === id);
-    console.log("Found task:", found);
-    if (found) setTask(found);
-  }, [id, tasks]);
+  const task = tasks.find((task) => task.id === id);
 
-  if (!tasks || tasks.length === 0) {
+  if (tasks.length > 0 && !task) {
     return (
       <main>
         <div className="container">
-          <p>Завантаження списку завдань...</p>
-        </div>
-      </main>
-    );
-  }
-
-  if (!task) {
-    return (
-      <main>
-        <div className="container">
-          <p>Завантаження завдання...</p>
+          <div className="alert alert-error">
+            <p>Завдання не знайдено</p>
+            <Button onClick={() => navigate("/")}>
+              <ArrowLeft />
+              Повернутися до списку завдань
+            </Button>
+          </div>
         </div>
       </main>
     );
@@ -52,9 +38,9 @@ const EditTaskPage = () => {
       <div className="container">
         <TaskForm
           initialData={task}
-          submitLabel="Редагувати завдання"
-          showCancel
+          submitlabel="Редагувати завдання"
           onSubmit={handleEdit}
+          showCancel
         />
       </div>
     </main>

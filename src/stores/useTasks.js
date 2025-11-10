@@ -32,7 +32,8 @@ export const useTasks = create(
                 ...task,
                 ...newTask
               }
-              : task)
+              : task
+            )
         })),
 
       toggleTask: (id) =>

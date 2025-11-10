@@ -9,9 +9,11 @@ import { useNavigate } from "react-router";
 const Task = (props) => {
   const { id, completed, title, description, category, deadline } = props;
   const fieldId = useId();
+
   const navigate = useNavigate();
-  const removeTask = useTasks((state) => state.removeTask);
   const toggleTask = useTasks((state) => state.toggleTask);
+  const removeTask = useTasks((state) => state.removeTask);
+
   return (
     <div className="task card">
       <div className="task-content">
