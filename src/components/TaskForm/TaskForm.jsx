@@ -56,6 +56,7 @@ const TaskForm = (props) => {
     setForm(initialData);
     setErrors({ title: "" });
   };
+
   const handleCancel = () => {
     navigate("/");
   };

@@ -4,6 +4,7 @@ import { Activity } from "react";
 
 const Field = (props) => {
   const {
+    classname = "",
     id,
     name,
     label,
@@ -56,7 +57,7 @@ const Field = (props) => {
   } else {
     inputElement = (
       <input
-        className={error ? "input-error" : ""}
+        className={`${classname ?? ""} ${error ? "input-error" : ""}`.trim()}
         id={id}
         name={name}
         placeholder={placeholder}

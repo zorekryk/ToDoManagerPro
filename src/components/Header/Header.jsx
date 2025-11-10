@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container">
-        <Link to="/">
+        <Link to="/" className="logo">
           <h1>ToDo Manager Pro</h1>
         </Link>
         <Nav />

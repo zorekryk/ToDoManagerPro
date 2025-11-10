@@ -14,7 +14,8 @@ export const useTasks = create(
                 id: crypto.randomUUID(),
                 completed: false,
                 ...task
-              }]
+              }
+            ]
         })),
 
       removeTask: (id) =>
