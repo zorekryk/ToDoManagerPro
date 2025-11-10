@@ -21,6 +21,18 @@ export const useCategories = create(
         set((state) => ({
           categories:
             state.categories.filter((category) => category.id !== id)
+        })),
+
+      editCategory: (id, newCategory) =>
+        set((state) => ({
+          categories:
+            state.categories.map((category) => category.id === id
+              ? {
+                ...category,
+                ...newCategory
+              }
+              : category
+            )
         }))
     }),
     { name: "categories" }

@@ -1,7 +1,7 @@
 import "./CategoryForm.css";
 import Button from "@/components/shared/Button";
 import Field from "@/components/shared/Field";
-import { Plus } from "lucide-react";
+import { Plus, Save } from "lucide-react";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router";
 
@@ -84,8 +84,8 @@ const CategoryForm = (props) => {
       </div>
       <div className="actions">
         <Button type="submit">
-          <Plus />
-          Додати
+          {label.includes("Додати") ? <Plus /> : <Save />}
+          {label.includes("Додати") ? "Додати категорію" : "Зберегти"}
         </Button>
         {showCancel && (
           <Button type="button" onClick={handleCancel} classname="outlined">
