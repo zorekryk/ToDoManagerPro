@@ -13,8 +13,9 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route index element={<Home />} />
-          <Route path="/edit/:id" element={<EditTask />}/>
+          <Route index element={<HomePage />} />
+          <Route path="/edit/:id" element={<EditTaskPage />}/>
+          <Route path="/categories" element={<CategoriesPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

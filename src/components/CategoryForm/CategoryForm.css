@@ -1,0 +1,20 @@
+.category-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+
+  & h2 {
+    font-size: 1.125rem;
+  }
+
+  & .wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+
+  .actions {
+    margin-top: 0.4rem;
+  }
+}
