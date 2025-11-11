@@ -1,4 +1,4 @@
-import "./Task.css";
+import "./TaskItem.css";
 import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
 import { useCategories } from "@/stores/useCategories";
@@ -7,7 +7,7 @@ import { Calendar, SquarePen, Tag, Trash2 } from "lucide-react";
 import { useId } from "react";
 import { useNavigate } from "react-router";
 
-const Task = (props) => {
+const TaskItem = (props) => {
   const { id, completed, title, description, categoryId, deadline } = props;
   const fieldId = useId();
 
@@ -57,4 +57,4 @@ const Task = (props) => {
   );
 };
 
-export default Task;
+export default TaskItem;

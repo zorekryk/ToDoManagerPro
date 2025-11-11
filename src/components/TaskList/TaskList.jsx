@@ -1,5 +1,5 @@
 import "./TaskList.css";
-import Task from "@/components/Task";
+import TaskItem from "@/components/TaskItem";
 import { useTasks } from "@/stores/useTasks";
 
 const TaskList = () => {
@@ -8,7 +8,7 @@ const TaskList = () => {
   return (
     <div className="task-list">
       {tasks.map((task) => (
-        <Task key={task.id} {...task}/>
+        <TaskItem key={task.id} {...task}/>
       ))}
     </div>
   );
