@@ -32,8 +32,8 @@ const CategoryForm = (props) => {
 
     if (!form.title.trim()) {
       newErrors.title = "Назва не може бути порожньою.";
-    } else if (form.title.trim().length > 50) {
-      newErrors.title = "Максимум 50 символів.";
+    } else if (form.title.trim().length > 25) {
+      newErrors.title = "Максимум 25 символів.";
     }
 
     return newErrors.title ? newErrors : null;
