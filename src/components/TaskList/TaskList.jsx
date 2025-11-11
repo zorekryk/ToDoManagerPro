@@ -1,14 +1,24 @@
 import "./TaskList.css";
 import TaskItem from "@/components/TaskItem";
-import { useTasks } from "@/stores/useTasks";
+import { useFilteredTasks} from "@/stores/useTasks";
+import { Info } from "lucide-react";
 
 const TaskList = () => {
-  const tasks = useTasks((state) => state.tasks);
+  const filteredTasks = useFilteredTasks();
+
+  if (filteredTasks.length === 0) {
+    return (
+      <div className="not-found card">
+        <Info />
+        <p>Завдань не знайдено</p>
+      </div>
+    );
+  }
 
   return (
     <div className="task-list">
-      {tasks.map((task) => (
-        <TaskItem key={task.id} {...task}/>
+      {filteredTasks.map((task) => (
+        <TaskItem key={task.id} {...task} />
       ))}
     </div>
   );
