@@ -1,18 +1,22 @@
 import "./Task.css";
 import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
+import { useCategories } from "@/stores/useCategories";
 import { useTasks } from "@/stores/useTasks";
 import { Calendar, SquarePen, Tag, Trash2 } from "lucide-react";
 import { useId } from "react";
 import { useNavigate } from "react-router";
 
 const Task = (props) => {
-  const { id, completed, title, description, category, deadline } = props;
+  const { id, completed, title, description, categoryId, deadline } = props;
   const fieldId = useId();
 
   const navigate = useNavigate();
   const toggleTask = useTasks((state) => state.toggleTask);
   const removeTask = useTasks((state) => state.removeTask);
+
+  const categories = useCategories((state) => state.categories);
+  const categoryObject = categories.find((category) => category.id === categoryId);
 
   return (
     <div className="task card">
@@ -32,7 +36,7 @@ const Task = (props) => {
           <div className="task-other">
             <Badge classname="ghost">
               <Tag size="18" />
-              {category}
+              {categoryObject.title}
             </Badge>
             <Badge classname="ghost">
               <Calendar size="18" />

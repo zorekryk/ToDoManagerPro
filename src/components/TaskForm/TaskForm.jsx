@@ -5,14 +5,13 @@ import { useNavigate } from "react-router";
 import Button from "../shared/Button";
 import Field from "../shared/Field";
 
-const categories = ["Життя", "Робота", "Навчання", "Покупки"];
-
 const TaskForm = (props) => {
   const {
     initialData,
     submitLabel = "Додати завдання",
     onSubmit,
-    showCancel = false
+    showCancel = false,
+    categories
   } = props;
   const today = new Date().toISOString().split("T")[0];
   const [form, setForm] = useState(initialData);
@@ -85,8 +84,8 @@ const TaskForm = (props) => {
       />
       <div className="other-info">
         <Field
-          id="category"
-          name="category"
+          id="categoryId"
+          name="categoryId"
           label="Категорія"
           type="select"
           options={categories}
