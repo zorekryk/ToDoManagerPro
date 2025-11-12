@@ -14,4 +14,6 @@
   display: flex;
 }
 
-.filter-options
+.filter-options button {
+  min-width: 100%;
+}
