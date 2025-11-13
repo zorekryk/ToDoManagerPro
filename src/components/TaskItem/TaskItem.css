@@ -2,10 +2,41 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: flex-start;
+  position: relative;
 
   & > div {
     display: flex;
     gap: 1rem;
+  }
+
+  &.today::before,
+  &.overdue::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: 0;
+    width: 4px;
+    height: 90%;
+    border-radius: 25px;
+  }
+
+  &.overdue {
+    background: linear-gradient(to right, #fef2f2 0%, white 20%);
+
+
+    &::before {
+      background: #ef4444;
+    }
+  }
+
+  &.today {
+    background: linear-gradient(to right, #fffbeb 0%, white 20%);
+
+    &::before {
+      background: #f59e0b;
+    }
   }
 
   .task-content {
@@ -15,7 +46,6 @@
   .task-info {
     width: 100%;
     min-width: 0;
-
 
     & label {
       line-height: 1.2;
@@ -38,6 +68,8 @@
       display: flex;
       gap: 1rem;
       margin-top: 1rem;
+
+
     }
   }
 
@@ -46,6 +78,13 @@
     gap: 0.2rem;
     justify-content: center;
   }
+
+
+  &.completed {
+    opacity: 0.6;
+
+    .task-title {
+      text-decoration: line-through;
+    }
+  }
 }
-
-

@@ -3,6 +3,7 @@ import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
 import { useCategories } from "@/stores/useCategories";
 import { useTasks } from "@/stores/useTasks";
+import { getTaskStatus } from "@/utils/getTaskStatus";
 import { Calendar, SquarePen, Tag, Trash2 } from "lucide-react";
 import { useId } from "react";
 import { useNavigate } from "react-router";
@@ -17,9 +18,10 @@ const TaskItem = (props) => {
 
   const categories = useCategories((state) => state.categories);
   const categoryObject = categories.find((category) => category.id === categoryId);
+  const status = getTaskStatus(deadline, completed);
 
   return (
-    <div className="task card">
+    <div className={`task card ${status} ${completed ? "completed" : ""}`}>
       <div className="task-content">
         <input
           className="checkbox"
@@ -29,7 +31,7 @@ const TaskItem = (props) => {
           checked={completed}
         />
         <div className="task-info">
-          <label htmlFor={fieldId}>{title}</label>
+          <label htmlFor={fieldId} className="task-title">{title}</label>
           {description && (
             <p>{description}</p>
           )}
