@@ -1,6 +1,7 @@
 import "./TaskForm.css";
+import { useCategories } from "@/stores/useCategories";
 import { Plus, Save } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import Button from "../shared/Button";
 import Field from "../shared/Field";
@@ -18,6 +19,10 @@ const TaskForm = (props) => {
   const [errors, setErrors] = useState({ title: "" });
   const titleInputRef = useRef(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    useCategories.getState().initDefaultCategories();
+  }, []);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
