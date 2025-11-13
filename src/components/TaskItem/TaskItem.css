@@ -1,8 +1,14 @@
 .task {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 6fr auto;
   align-items: flex-start;
   position: relative;
+
+  @media (max-width: 425px) {
+    .task-title {
+      font-size: 12px;
+    }
+  }
 
   & > div {
     display: flex;
@@ -41,6 +47,10 @@
 
   .task-content {
     gap: 1rem;
+
+    @media (max-width: 425px) {
+      gap: 0.6rem;
+    }
   }
 
   .task-info {
@@ -50,10 +60,9 @@
     & label {
       line-height: 1.2;
       font-size: 1.2rem;
-      user-select: text;
 
-      &:active {
-        user-select: none;
+      @media (max-width: 425px) {
+        font-size: 16px;
       }
     }
 
@@ -62,14 +71,43 @@
       word-wrap: break-word;
       overflow-wrap: break-word;
       word-break: break-word;
+
+      @media (max-width: 425px) {
+        font-size: 14px;
+        margin-block: 0.2rem;
+      }
     }
 
     .task-other {
       display: flex;
-      gap: 1rem;
+      gap: 0.4rem;
       margin-top: 1rem;
+      justify-content: space-between;
 
+      @media (max-width: 425px) {
+        margin-top: 0.4rem;
+      }
 
+      .task-badges {
+        display: flex;
+        gap: 1rem;
+
+        @media (max-width: 320px) {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.4rem;
+        }
+
+      }
+
+      .task-actions-mobile {
+        display: none;
+        align-items: flex-end;
+
+        @media (max-width: 768px) {
+          display: flex;
+        }
+      }
     }
   }
 
@@ -77,8 +115,12 @@
     align-items: flex-start;
     gap: 0.2rem;
     justify-content: center;
-  }
+    display: none;
 
+    @media (min-width: 769px) {
+      display: flex;
+    }
+  }
 
   &.completed {
     opacity: 0.6;

@@ -36,14 +36,25 @@ const TaskItem = (props) => {
             <p>{description}</p>
           )}
           <div className="task-other">
-            <Badge classname="ghost">
-              <Tag size="18" />
-              {categoryObject.title}
-            </Badge>
-            <Badge classname="ghost">
-              <Calendar size="18" />
-              {deadline}
-            </Badge>
+            <div className="task-badges">
+              <Badge classname="ghost">
+                <Tag size="18" />
+                {categoryObject.title}
+              </Badge>
+              <Badge classname="ghost">
+                <Calendar size="18" />
+                {deadline}
+              </Badge>
+            </div>
+
+            <div className="task-actions-mobile">
+              <Button classname="ghost" onClick={() => navigate(`edit/${id}`)}>
+                <SquarePen />
+              </Button>
+              <Button classname="ghost" onClick={() => removeTask(id)}>
+                <Trash2 />
+              </Button>
+            </div>
           </div>
         </div>
       </div>

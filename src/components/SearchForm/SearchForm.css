@@ -6,8 +6,12 @@
 
 .search-form .wrapper {
   display: grid;
-  grid-template-columns: 85% 1fr;
-  gap: 1rem
+  grid-template-columns: 6fr auto;
+  gap: 1rem;
+
+  @media (max-width: 460px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .search-form .wrapper:nth-child(2) {

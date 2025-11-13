@@ -10,12 +10,25 @@
   & .actions {
     display: flex;
     gap: 1rem;
+
+    @media (max-width: 550px) {
+      flex-direction: column;
+    }
   }
 
   & .other-info {
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    @media (max-width: 425px) {
+      flex-direction: column;
+      align-items: flex-start;
+
+      & div {
+        width: 100%;
+      }
+    }
   }
 }
 

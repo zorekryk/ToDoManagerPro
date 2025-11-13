@@ -6,6 +6,11 @@
     list-style: none;
     gap: 2rem;
     color: var(--color-gray-4);
+
+    @media (max-width: 460px) {
+      font-size: 12px;
+      gap: 1rem;
+    }
   }
 
   & a {

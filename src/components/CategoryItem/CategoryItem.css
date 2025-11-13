@@ -18,6 +18,10 @@
     .category-name {
       display: flex;
       align-items: center;
+
+      @media (max-width: 320px) {
+        font-size: 14px;
+      }
     }
   }
 }

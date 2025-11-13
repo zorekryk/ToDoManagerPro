@@ -3,6 +3,10 @@
   flex-direction: column;
   gap: 1.8rem;
 
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
+
   & h2 {
     font-size: 1.125rem;
   }
@@ -15,8 +19,12 @@
   }
 
   .actions {
-    margin-top: 0.4rem;
+    margin-top: 2rem;
     display: flex;
     gap: 1rem;
+
+    @media (max-width: 425px) {
+      flex-direction: column;
+    }
   }
 }
