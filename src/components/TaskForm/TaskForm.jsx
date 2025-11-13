@@ -89,7 +89,7 @@ const TaskForm = (props) => {
           label="Категорія"
           type="select"
           options={categories}
-          value={form.category}
+          value={form.categoryId}
           onChange={handleChange}
         />
         <Field
