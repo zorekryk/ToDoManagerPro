@@ -55,7 +55,7 @@ const CategoryForm = (props) => {
   };
 
   const handleCancel = () => {
-    navigate("/");
+    navigate("/categories");
   };
 
   return (
