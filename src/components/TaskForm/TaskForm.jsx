@@ -11,18 +11,21 @@ const TaskForm = (props) => {
     initialData,
     submitLabel = "Додати завдання",
     onSubmit,
-    showCancel = false,
-    categories
+    showCancel = false
   } = props;
   const today = new Date().toISOString().split("T")[0];
   const [form, setForm] = useState(initialData);
   const [errors, setErrors] = useState({ title: "" });
   const titleInputRef = useRef(null);
   const navigate = useNavigate();
+  const categories = useCategories((state) => state.categories);
 
   useEffect(() => {
     useCategories.getState().initDefaultCategories();
-  }, []);
+    if (categories.length > 0 && !form.categoryId) {
+      setForm((prev) => ({ ...prev, categoryId: categories[0].id }));
+    }
+  }, [categories, form.categoryId]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

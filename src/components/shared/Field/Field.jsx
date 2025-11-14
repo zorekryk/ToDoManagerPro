@@ -34,8 +34,11 @@ const Field = (props) => {
     inputElement = (
       <select id={id} name={name} {...rest}>
         {options.map((opt) => (
-          <option key={opt.value ?? opt} value={opt.value ?? opt}>
-            {opt.label ?? opt}
+          <option
+            key={opt.value ?? opt.id ?? opt}
+            value={opt.value ?? opt.id ?? opt}
+          >
+            {opt.title ?? opt}
           </option>
         ))}
       </select>

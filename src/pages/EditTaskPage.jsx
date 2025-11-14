@@ -1,6 +1,5 @@
 import Button from "@/components/shared/Button";
 import TaskForm from "@/components/TaskForm";
-import { useCategories } from "@/stores/useCategories";
 import { useTasks } from "@/stores/useTasks";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate, useParams } from "react-router";
@@ -10,7 +9,6 @@ const EditTaskPage = () => {
   const tasks = useTasks((state) => state.tasks);
   const editTask = useTasks((state) => state.editTask);
   const navigate = useNavigate();
-  const categories = useCategories((state) => state.categories);
 
   const task = tasks.find((task) => task.id === id);
 
@@ -42,11 +40,6 @@ const EditTaskPage = () => {
           initialData={task}
           submitlabel="Редагувати завдання"
           onSubmit={handleEdit}
-          categories={categories.map((c) => ({
-            label: c.title,
-            value: c.id,
-            color: c.color
-          }))}
           showCancel
         />
       </div>
