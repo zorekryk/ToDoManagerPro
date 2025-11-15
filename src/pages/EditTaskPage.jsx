@@ -38,7 +38,7 @@ const EditTaskPage = () => {
       <div className="container">
         <TaskForm
           initialData={task}
-          submitlabel="Редагувати завдання"
+          submitLabel="Редагувати завдання"
           onSubmit={handleEdit}
           showCancel
         />
