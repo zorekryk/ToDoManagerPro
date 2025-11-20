@@ -1,6 +1,7 @@
 import CategoriesPage from "@/pages/CategoriesPage";
 import EditCategoryPage from "@/pages/EditCategoryPage";
 import EditTaskPage from "@/pages/EditTaskPage";
+import NotFoundPage from "@/pages/NotFoundPage";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
@@ -18,6 +19,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/edit/:id" element={<EditTaskPage />} />
           <Route path="/categories" element={<CategoriesPage />} />
           <Route path="/categories/:id" element={<EditCategoryPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

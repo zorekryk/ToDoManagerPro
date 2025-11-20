@@ -8,7 +8,7 @@ const TaskList = () => {
 
   if (filteredTasks.length === 0) {
     return (
-      <div className="not-found card">
+      <div className="task-not-found card">
         <Info />
         <p>Завдань не знайдено</p>
       </div>
