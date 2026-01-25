@@ -1,0 +1,35 @@
+{
+  "tasks": [
+    {
+      "id": "537f",
+      "title": "йцу",
+      "description": "",
+      "categoryId": "0ecf",
+      "deadline": "Без дедлайну",
+      "isCompleted": false
+    },
+    {
+      "id": "a277",
+      "title": "qwe",
+      "description": "asd",
+      "categoryId": "0ecf",
+      "deadline": "Без дедлайну",
+      "isCompleted": false
+    },
+    {
+      "id": "ea68",
+      "title": "фів123",
+      "description": "вфц",
+      "categoryId": "0ecf",
+      "deadline": "Без дедлайну",
+      "isCompleted": false
+    }
+  ],
+  "categories": [
+    {
+      "id": "0ecf",
+      "title": "123уйц",
+      "color": "#212a59"
+    }
+  ]
+}
